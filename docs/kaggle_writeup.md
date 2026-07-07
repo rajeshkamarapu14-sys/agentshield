@@ -49,11 +49,11 @@ AgentShield wraps the support agent in a **fail-closed, four-stage firewall**. E
 | `require_human_approval` | external email, CRM change, high refund, bulk action — customer-impacting |
 | `ask_clarification` | required business detail (recipient, order ID, target) is missing |
 
-**The deterministic-design principle.** AgentShield **separates reasoning from enforcement**. The SupportAgent can use Google ADK and optional Gemini to understand requests and plan actions, but the **final security decision is deterministic** — because security boundaries need consistency, auditability, and fail-closed behavior. Deterministic rules do not hallucinate policy, produce the same decision for the same input every time (which also makes the evaluations reproducible), and can attach reason codes and structured logs to every decision. LLMs remain valuable *as advisors* — planning, summarizing context, flagging suspicious phrasing, and scoring decisions — but an optional Gemini detector can only *escalate* a decision, and the JudgeAgent can only hold or make a verdict stricter; **neither can turn a `block` into an `allow`.**
+**The deterministic-design principle.** AgentShield **separates reasoning from enforcement**. The SupportAgent can use Google ADK and optional Gemini to understand requests and plan actions, but the **final security decision is deterministic** — because security boundaries need consistency, auditability, and fail-closed behavior. Deterministic rules do not hallucinate policy, produce the same decision for the same input every time (which also makes the evaluations reproducible), and can attach reason codes and structured logs to every decision. LLMs remain valuable *as advisors* — planning, summarizing context, flagging suspicious phrasing, and scoring decisions — but an optional Gemini detector can only *escalate* a decision, and the JudgeAgent can flag or escalate cases for review, but it **cannot override the deterministic firewall or weaken a `block` into an `allow`.**
 
 ## Architecture
 
-![AgentShield system architecture](images/architecture.png)
+*Figure 1 — AgentShield system architecture (see the Media Gallery; source: `docs/images/architecture.png`).*
 
 The multi-agent system is deliberately small and focused:
 
@@ -66,7 +66,7 @@ The multi-agent system is deliberately small and focused:
 
 Below the agents sit the deterministic **guardrails** (`injection_rules`, `sensitive_data`, `policy_engine`, `output_guardrail`) and the **tool layer**.
 
-![AgentShield runtime workflow](images/workflow.png)
+*Figure 2 — AgentShield runtime workflow (see the Media Gallery; source: `docs/images/workflow.png`).*
 
 The runtime workflow is a single request journey: a request arrives, the ADK SupportAgent plans, the four firewall stages run, the most-restrictive decision is made, an approved tool executes in dry-run mode, the output is re-inspected, the JudgeAgent scores the decision, and a redacted audit entry is written.
 
@@ -110,5 +110,7 @@ AgentShield is deliberately honest about scope. Deterministic rules are **predic
 - **Human-approval UI** — approvals are surfaced as decisions/flags; a reviewer console would close the loop.
 - **Real enterprise integrations** — email/CRM/refund connectors, added only *after* a safety review, keeping dry-run as the default.
 - **Cloud deployment hardening** — authentication, rate limiting, and secret management for a production Cloud Run deployment.
+
+For a business reviewer, the value is that unsafe actions are stopped before execution, and every decision has a reproducible reason.
 
 **In one line:** AgentShield gives businesses the flexibility of LLM agents with a security boundary they can *reason about, audit, and reproduce* — a deterministic firewall that inspects input, retrieved context, planned tool calls, and final output, and stops unsafe actions before they run.
