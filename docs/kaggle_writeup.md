@@ -61,7 +61,7 @@ The multi-agent system is deliberately small and focused:
 - **InjectionDetectorAgent** — detects direct and indirect injection; rules-first, with optional Gemini escalation.
 - **ToolPolicyAgent** — enforces tool-use policy: external email, CRM writes, bulk actions, unknown tools.
 - **RedTeamAgent** — generates synthetic attack cases across all five injection sources for evaluation.
-- **JudgeAgent** — an LLM-as-judge plus an independent soundness audit. It scores each decision 1–5 and flags borderline cases for human review, but never overrides the firewall.
+- **JudgeAgent** — a reviewer agent, rules by default with optional Gemini LLM-as-judge, plus an independent soundness audit. It scores each decision 1–5 and flags borderline cases for human review, but never overrides the firewall.
 - **AuditReporterAgent** — turns the JSONL audit trail into a readable report.
 
 Below the agents sit the deterministic **guardrails** (`injection_rules`, `sensitive_data`, `policy_engine`, `output_guardrail`) and the **tool layer**.
