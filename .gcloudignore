@@ -1,0 +1,18 @@
+# Files NOT uploaded to Cloud Build when deploying with `gcloud run deploy --source .`
+.git/
+.gitignore
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.DS_Store
+
+# Never ship secrets or local runtime artifacts
+.env
+logs/*.jsonl
+evals/results.json
+
+# Docs/screenshots aren't needed at runtime
+docs/screenshots/

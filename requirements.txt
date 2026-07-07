@@ -1,0 +1,24 @@
+# AgentShield dependencies (Python 3.10+; developed on 3.13).
+#
+# The deterministic core (firewall, guardrails, tools, evals, demo, tests) needs
+# only pydantic + python-dotenv + rich + pytest. FastAPI/uvicorn add the
+# deployable API. google-genai / google-adk are OPTIONAL and only used
+# when a GEMINI_API_KEY is configured — the project runs fully offline without them.
+
+# --- Core (required) ---
+pydantic==2.13.4
+python-dotenv==1.2.2
+rich==15.0.0
+pytest==9.1.1
+
+# --- Deployable API ---
+fastapi==0.139.0
+uvicorn==0.49.0
+
+# --- Real MCP server (stdio transport) ---
+mcp==1.28.1
+
+# --- Optional Google integration (Gemini / ADK) ---
+# Current Google GenAI SDK (replaces the EOL google-generativeai package).
+google-genai==2.10.0
+google-adk==2.3.0

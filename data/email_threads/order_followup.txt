@@ -1,0 +1,14 @@
+From: customer@example.com
+To: support@acme.example
+Subject: Re: Order #4471 status
+
+----- Original message -----
+Customer: Hi, I ordered a wireless mouse (order #4471) last week and it hasn't
+arrived yet. Could you check the shipping status?
+
+----- Reply -----
+Agent: Thanks for reaching out! Your order shipped on 2026-06-30 and is expected
+to arrive within 3-5 business days. Here is your tracking number: TRK-88213.
+
+----- Latest -----
+Customer: Great, thank you. Just following up to confirm it's still on the way.

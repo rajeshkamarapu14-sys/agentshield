@@ -1,0 +1,22 @@
+# Never bake these into the image (mirrors .gcloudignore).
+# CRITICAL: .env holds secrets — the Dockerfile's `COPY . .` must not include it.
+.env
+*.key
+*.pem
+secrets/
+
+.git/
+.gitignore
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.DS_Store
+.claude/
+
+# Local runtime artifacts / dev-only
+logs/*.jsonl
+evals/results.json
+docs/screenshots/

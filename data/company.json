@@ -1,0 +1,25 @@
+{
+  "company_name": "NovaCart Support",
+  "business_type": "e-commerce retail support",
+  "country": "Singapore",
+  "country_code": "SG",
+  "currency": "SGD",
+  "timezone": "Asia/Singapore",
+  "support_hours": "Mon-Fri 09:00-18:00 SGT",
+  "support_channels": ["email", "chat", "ticket"],
+  "internal_email_domains": ["novacart.example", "acme-support.example"],
+  "escalation_contact": "supervisor@novacart.example",
+  "refund_policy": {
+    "window_days": 30,
+    "refund_types": ["damaged item", "wrong item", "late delivery", "standard product refund"],
+    "currency": "SGD",
+    "auto_approve_max": 500,
+    "human_approval_above": 500,
+    "block_above": 10000
+  },
+  "data_handling": {
+    "stores_full_card": false,
+    "note": "Only the last 4 digits of a card are ever stored; full PAN is never persisted or disclosed.",
+    "pii_policy": "Sensitive PII is redacted in responses and audit logs by default."
+  }
+}

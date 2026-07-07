@@ -1,0 +1,32 @@
+# Secrets — never commit
+.env
+*.key
+*.pem
+secrets/
+
+# Archives / bundles (never commit build/review zips)
+*.zip
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# OS / editor / local tooling
+.DS_Store
+.idea/
+.vscode/
+.claude/
+
+# Runtime artifacts (keep the folder, ignore generated logs/results)
+logs/*.jsonl
+!logs/sample_audit_log.jsonl
+evals/results.json
+
+# Meta / build docs (not part of the public deliverable)
+CLAUDE.md
+KAGGLE_CAPSTONE_REQUIREMENTS.md

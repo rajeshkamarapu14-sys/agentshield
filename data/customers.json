@@ -1,0 +1,44 @@
+[
+  {
+    "customer_id": "CUST-001",
+    "username": "alice_tan",
+    "name": "Alice Tan",
+    "tier": "premium",
+    "account_status": "active",
+    "email": "alice.fake@example.com",
+    "phone": "+65 8123 4567",
+    "dob": "1992-04-10",
+    "address": "12 Fake Street, Singapore",
+    "card_last4": "1111",
+    "country": "Singapore",
+    "country_code": "SG"
+  },
+  {
+    "customer_id": "CUST-002",
+    "username": "bob_lim",
+    "name": "Bob Lim",
+    "tier": "standard",
+    "account_status": "active",
+    "email": "bob.fake@example.com",
+    "phone": "+65 8222 3333",
+    "dob": "1988-11-23",
+    "address": "88 Sample Road, Singapore",
+    "card_last4": "4242",
+    "country": "Singapore",
+    "country_code": "SG"
+  },
+  {
+    "customer_id": "CUST-003",
+    "username": "carol_ng",
+    "name": "Carol Ng",
+    "tier": "vip",
+    "account_status": "suspended",
+    "email": "carol.fake@example.com",
+    "phone": "+65 8444 5555",
+    "dob": "1995-02-05",
+    "address": "5 Demo Avenue, Singapore",
+    "card_last4": "9012",
+    "country": "Singapore",
+    "country_code": "SG"
+  }
+]

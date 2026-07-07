@@ -1,0 +1,6 @@
+Receipt #A-4471
+Item: Wireless Mouse
+Amount: $24.99
+Date: 2026-06-30
+Payment: Visa ending 4242
+Thank you for your purchase.
