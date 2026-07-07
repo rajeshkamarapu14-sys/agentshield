@@ -24,6 +24,8 @@ venv/
 
 # Runtime artifacts (keep the folder, ignore generated logs/results)
 logs/*.jsonl
+logs/*.log
+!logs/.gitkeep
 !logs/sample_audit_log.jsonl
 evals/results.json
 
