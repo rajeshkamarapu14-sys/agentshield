@@ -78,7 +78,7 @@ The runtime workflow is a single request journey: a request arrives, the ADK Sup
 
 **MCP server.** The 12 tools are exposed two ways: an in-process registry, and a **real Model Context Protocol server over stdio** (using the official MCP Python SDK). Every tool call — from either surface — routes through the same firewall gate, so no tool executes before approval.
 
-**Tools (12, all dry-run).** `search_knowledge_base`, `read_attachment`, `read_email_thread`, `lookup_customer_dry_run`, `list_tickets_dry_run`, `get_business_profile_dry_run`, `draft_customer_reply`, `send_email_dry_run`, `update_crm_dry_run`, `issue_refund_dry_run`, `create_ticket`, `get_security_policy`. The risky tools (email, CRM, refund) **only ever simulate** their action — there are **no real emails, CRM writes, network calls, or customer data**. All data (customers, tickets, knowledge base, email threads, attachments) is **synthetic**.
+**Tools (12, all dry-run).** `search_knowledge_base`, `read_attachment`, `read_email_thread`, `lookup_customer_dry_run`, `list_tickets_dry_run`, `get_business_profile_dry_run`, `draft_customer_reply`, `send_email_dry_run`, `update_crm_dry_run`, `issue_refund_dry_run`, `create_ticket`, `get_security_policy`. The risky tools (email, CRM, refund) **only ever simulate** their action — there are **no real emails, CRM writes, network calls, or real customer data**. All data (customers, tickets, knowledge base, email threads, attachments) is **synthetic**.
 
 **Google integration.** The SupportAgent is a genuine ADK `LlmAgent` that exposes the firewall-gated tools; optional Gemini can back the LLM detector and the JudgeAgent. Both are off by default — the system is 100% functional with no API key.
 
